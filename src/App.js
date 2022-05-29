@@ -1,6 +1,6 @@
+import "./App.css";
 import { Fragment } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import { publicRoutes } from "~/routers/router";
 import { DefaultLayout } from "~/components/Layout/upload";
 import { UploadLayout } from "~/components/Layout/upload";
