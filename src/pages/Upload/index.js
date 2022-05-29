@@ -1,7 +1,7 @@
 function Upload() {
   return (
     <div>
-      <h1>Upload</h1>
+      <h1>Upload page</h1>
     </div>
   );
 }
