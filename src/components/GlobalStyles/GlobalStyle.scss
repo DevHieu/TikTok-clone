@@ -5,17 +5,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
 }
 
 :root {
   --primary: #fe2c55;
   --black: #161823;
+  --gray: #1618230f;
   --white: #ffffff;
-}
-
-body {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
+  --icon-color: #a6a7ac;
+  --hover: #16182308;
+  --active: #1618230f;
 }

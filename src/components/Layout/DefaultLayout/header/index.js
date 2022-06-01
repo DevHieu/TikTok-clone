@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
-  faMagnifyingGlass,
   faSpinner,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
+// import faMagnifyingGlass from "@fortawesome/free-regular-svg-icons";
 import classNames from "classnames/bind";
 import style from "./Header.module.scss";
 import images from "~/assets/images";
@@ -25,15 +26,16 @@ function Header() {
             type="text"
             placeholder="Search account and videos"
           />
-          <div className={cx("clear-btn")}>
+          {/* <button className={cx("clear-btn")}>
             <FontAwesomeIcon icon={faCircleXmark} />
-          </div>
+          </button>
           <div className={cx("search-loading")}>
             <FontAwesomeIcon icon={faSpinner} />
-          </div>
-          <div className={cx("search-btn")}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </div>
+          </div> */}
+          <span className={cx("span-spliter")}></span>
+          <button className={cx("search-btn")}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} size="xl" />
+          </button>
         </div>
         <div className={cx("actions")}></div>
       </div>
