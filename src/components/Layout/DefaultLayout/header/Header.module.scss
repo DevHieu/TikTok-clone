@@ -13,13 +13,16 @@
     align-items: center;
     justify-content: space-between;
     .search {
-      width: 361px;
+      // width: 361px;
       height: 46px;
       display: flex;
       background-color: var(--gray);
       align-items: center;
       border-radius: var(--search-border-radius);
       padding-left: 16px;
+      &:focus-within {
+        border: 1.5px solid var(--border);
+      }
       .search-input {
         background: transparent;
         border: none;
@@ -29,6 +32,32 @@
         font-size: 16px;
         font-weight: 500;
         caret-color: var(--primary);
+        &::-webkit-search-cancel-button {
+          cursor: pointer;
+          background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+            no-repeat 50% 50%;
+          // background-size: contain;
+          -webkit-appearance: none;
+          opacity: 0.5;
+          height: 16px;
+          width: 16px;
+          border-radius: 50%;
+        }
+        &:not(:placeholder-shown) ~ .search-btn {
+          color: var(--black);
+        }
+      }
+      .search-focusing {
+        width: 28px;
+        height: 16px;
+        .clear-btn,
+        .search-loading {
+          position: absolute;
+          border: none;
+          outline: none;
+          color: var(--icon-color);
+          cursor: pointer;
+        }
       }
       .span-spliter {
         width: 1px;
@@ -40,11 +69,9 @@
         height: 100%;
         border: none;
         outline: none;
-        border-radius: 0 var(--search-border-radius) var(--search-border-radius)
-          0;
+        border-top-right-radius: var(--search-border-radius);
+        border-bottom-right-radius: var(--search-border-radius);
         color: var(--icon-color);
-        font-size: 1.8rem;
-
         cursor: pointer;
         &:hover {
           background: var(--hover);

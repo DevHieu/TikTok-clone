@@ -4,7 +4,6 @@ import {
   faSpinner,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-// import faMagnifyingGlass from "@fortawesome/free-regular-svg-icons";
 import classNames from "classnames/bind";
 import style from "./Header.module.scss";
 import images from "~/assets/images";
@@ -26,12 +25,14 @@ function Header() {
             type="text"
             placeholder="Search account and videos"
           />
-          {/* <button className={cx("clear-btn")}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
-          <div className={cx("search-loading")}>
-            <FontAwesomeIcon icon={faSpinner} />
-          </div> */}
+          <div className={cx("search-focusing")}>
+            <button className={cx("clear-btn")}>
+              <FontAwesomeIcon icon={faCircleXmark} size="1.5x" />
+            </button>
+            <div className={cx("search-loading")}>
+              <FontAwesomeIcon icon={faSpinner} />
+            </div>
+          </div>
           <span className={cx("span-spliter")}></span>
           <button className={cx("search-btn")}>
             <FontAwesomeIcon icon={faMagnifyingGlass} size="xl" />
