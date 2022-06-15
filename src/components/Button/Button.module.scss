@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
+
+.wrapper {
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background: var(--white);
+  padding: 6px 8px;
+  min-width: 100px;
+  text-decoration: none;
+  cursor: pointer;
+  .children {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+  }
+  + .wrapper {
+    margin: 0 16px;
+  }
+}
+.primary {
+  background: var(--primary);
+  color: var(--white);
+  &:hover {
+    background: linear-gradient(0deg, #0000000f, #0000000f), #fe2c55;
+  }
+}
+.outline {
+  height: 100%;
+  border: 1px solid var(--gray);
+  padding-left: 16px;
+  padding-right: 16px;
+  &:hover {
+    background-color: var(--hover);
+  }
+}
+.large {
+  font-size: 18px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 8px;
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.06);
+  }
+}
+.small {
+  width: 88px;
+  height: 28px;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  &:hover {
+    background-color: rgba(254, 44, 85, 0.06);
+  }
+}
+.rounded .children {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  height: 32px;
+  min-width: 90px;
+  color: rgba(22, 24, 35, 0.75);
+  padding: 0 8px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 52px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+}
+.icon {
+  max-height: 28px;
+}
+.icon + .children,
+.children + .icon {
+  margin-left: 8px;
+}

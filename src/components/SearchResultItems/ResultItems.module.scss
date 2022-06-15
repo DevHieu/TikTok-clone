@@ -1,0 +1,17 @@
+.wrapper {
+  padding: 9px 16px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  .result-icon {
+    margin-right: 8px;
+    .glass-icon {
+      font-size: 15px;
+    }
+  }
+  .result-content {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

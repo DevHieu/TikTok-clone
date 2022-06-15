@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     .search {
-      // width: 361px;
+      width: 361px;
       height: 46px;
       display: flex;
       background-color: var(--gray);
@@ -30,7 +30,7 @@
         width: 292px;
         height: 22px;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 400;
         caret-color: var(--primary);
         &::-webkit-search-cancel-button {
           cursor: pointer;
@@ -44,7 +44,7 @@
           border-radius: 50%;
         }
         &:not(:placeholder-shown) ~ .search-btn {
-          color: var(--black);
+          color: #4c4e57;
         }
       }
       .search-focusing {
@@ -59,12 +59,44 @@
           cursor: pointer;
         }
       }
+      .search-result {
+        width: 361px;
+        padding-top: 10px;
+        transform: translateX(30px);
+        .result {
+          padding: 9px 16px;
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          cursor: pointer;
+          .result-icon {
+            margin-right: 8px;
+          }
+          .result-content {
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+        .search-focusing {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0px 12px;
+        }
+        .account-heading {
+          padding: 5px 12px;
+          color: var(--text-heading);
+        }
+      }
       .span-spliter {
         width: 1px;
         height: 28px;
         background-color: var(--icon-color);
       }
       .search-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 52px;
         height: 100%;
         border: none;
@@ -82,9 +114,32 @@
       }
     }
     .actions {
-      width: 215.47px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 36px;
-      background-color: #1618230f;
+      .plus-icon {
+        color: var(--black);
+      }
+      .see-more {
+        .see-more-popup {
+          width: 233px;
+          padding-top: 6px;
+          .see-more-item {
+            display: flex;
+            width: 110%;
+            height: 42px;
+            padding: 10px 16px;
+            cursor: pointer;
+            &:hover {
+              background-color: var(--hover);
+            }
+            .item-title {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
     }
   }
 }

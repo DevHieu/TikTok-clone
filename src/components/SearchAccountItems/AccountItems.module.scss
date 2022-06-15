@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  padding: 9px 16px;
+  align-items: center;
+  .avarta {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  .info {
+    width: 280px;
+    .name {
+      display: flex;
+      align-items: center;
+      .check-icon {
+        margin-left: 4px;
+        margin-left: 4px;
+        color: #20d5ec;
+      }
+    }
+  }
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 92px;
+}
