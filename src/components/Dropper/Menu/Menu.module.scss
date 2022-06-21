@@ -1,19 +1,39 @@
 .menu-wrapper {
   width: 233px;
-  .menu-item {
-    display: flex;
-    width: 110%;
-    height: 42px;
-    background-color: #fff;
-    color: var(--black);
-    padding: 10px 16px;
-    margin-left: 0;
+}
+
+//MenuItems
+.menu-item {
+  display: flex;
+  width: 110%;
+  height: 40px;
+  background-color: #fff;
+  color: var(--black);
+  padding: 10px 24px;
+  margin-left: 0;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--hover);
+  }
+}
+
+//MenuHeader
+.menu-header {
+  display: flex;
+  width: 100%;
+  .back-btn {
+    width: 48px;
     border: none;
-    text-decoration: none;
-    outline: none;
+    background: var(--white);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     cursor: pointer;
-    &:hover {
-      background-color: var(--hover);
-    }
+  }
+  .header-title {
+    transform: translateX(50%);
   }
 }

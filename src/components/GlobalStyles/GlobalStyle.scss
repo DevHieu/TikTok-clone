@@ -1,11 +1,11 @@
 @import "normalize.css";
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+@import url("http://fonts.cdnfonts.com/css/proxima-nova-2");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
@@ -22,4 +22,9 @@
   --hover: #16182308;
   --active: #1618230f;
   --border: #16182333;
+
+  //Default layout
+  --default-layout-header-height: 60px;
+  --default-layout-header-width: 1150px;
+  --default-layout-header-horizontal-space: 26px;
 }

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiSearch, BiLoaderAlt, BiHelpCircle } from "react-icons/bi";
-import { BsXCircleFill, BsPlus, BsKeyboard } from "react-icons/bs";
+import { BsXCircleFill, BsKeyboard } from "react-icons/bs";
 import { AiOutlineMore } from "react-icons/ai";
 import { TbLanguage } from "react-icons/tb";
+import { FiPlus } from "react-icons/fi";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import classNames from "classnames/bind";
@@ -15,6 +16,7 @@ import SearchAccountItems from "~/components/SearchAccountItems/index";
 import SearchResultItems from "~/components/SearchResultItems/index";
 import Button from "~/components/Button/index";
 import Menu from "~/components/Dropper/Menu/index";
+import languages from "~/assets/languagesCode/index";
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +24,10 @@ const MENU_ITEMS = [
   {
     title: "English",
     icon: <TbLanguage size={24} />,
+    children: {
+      title: "Language",
+      data: languages,
+    },
   },
   {
     title: "Feedback and help",
@@ -33,6 +39,11 @@ const MENU_ITEMS = [
     icon: <BsKeyboard size={24} />,
   },
 ];
+
+//handle logic
+const handleMenuChange = (menuItem) => {
+  console.log(menuItem);
+};
 
 function Header() {
   const [searchValue, setSearchValue] = useState("");
@@ -106,12 +117,16 @@ function Header() {
           </button>
         </div>
         <div className={cx("actions")}>
-          <Button outline to="/upload" leftIcon={<BsPlus size={28} />}>
+          <Button outline to="/upload" leftIcon={<FiPlus size={21} />}>
             Upload
           </Button>
           <Button primary>Log in</Button>
-          <div className={cx("see-more")}>
-            <Menu items={MENU_ITEMS} children={<AiOutlineMore size={24} />} />
+          <div className={cx("more-btn")}>
+            <Menu
+              onChange={handleMenuChange}
+              items={MENU_ITEMS}
+              children={<AiOutlineMore size={24} />}
+            />
           </div>
         </div>
       </div>
