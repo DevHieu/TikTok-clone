@@ -28,3 +28,29 @@
   --default-layout-header-width: 1150px;
   --default-layout-header-horizontal-space: 26px;
 }
+
+button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+}
+
+//custom tippy tooltip
+body {
+  .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background: #545454eb;
+  }
+  .tippy-arrow {
+    color: #545454eb;
+  }
+  .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
+    top: -8px
+  }
+  .tippy-content {
+    padding:8px 9px;
+  }
+}

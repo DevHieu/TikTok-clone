@@ -34,33 +34,32 @@ function Menu({ children, items = [], onChange = defaultFunction() }) {
   });
 
   return (
-    <div>
-      <Tippy
-        interactive
-        delay={[0, 700]}
-        placement="bottom-end"
-        onHide={() => {
-          setHistory((prev) => prev.slice(0, 1));
-        }}
-        render={(attrs) => (
-          <div className={cx("menu-wrapper")} tabIndex="-1" {...attrs}>
-            <Dropper>
-              {history.length > 1 && (
-                <MenuHeader
-                  title="Language"
-                  onBack={() => {
-                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                  }}
-                />
-              )}
-              <div>{renderItems}</div>
-            </Dropper>
-          </div>
-        )}
-      >
-        <div className={cx("more-icon")}>{children}</div>
-      </Tippy>
-    </div>
+    <Tippy
+      interactive
+      delay={[0, 700]}
+      offset={[12, 8]}
+      placement="bottom-end"
+      onHide={() => {
+        setHistory((prev) => prev.slice(0, 1));
+      }}
+      render={(attrs) => (
+        <div className={cx("menu-wrapper")} tabIndex="-1" {...attrs}>
+          <Dropper>
+            {history.length > 1 && (
+              <MenuHeader
+                title="Language"
+                onBack={() => {
+                  setHistory((prev) => prev.slice(0, prev.length - 1));
+                }}
+              />
+            )}
+            <div>{renderItems}</div>
+          </Dropper>
+        </div>
+      )}
+    >
+      <div className={cx("menu-icon")}>{children}</div>
+    </Tippy>
   );
 }
 export default Menu;
