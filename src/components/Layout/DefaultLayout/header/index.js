@@ -1,25 +1,22 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { BiSearch, BiLoaderAlt, BiHelpCircle } from "react-icons/bi";
-import { BsXCircleFill, BsChatSquareText, BsKeyboard } from "react-icons/bs";
+import { BiHelpCircle } from "react-icons/bi";
+import { BsKeyboard } from "react-icons/bs";
 import { AiOutlineMore, AiOutlineSetting } from "react-icons/ai";
 import { TbLanguage } from "react-icons/tb";
 import { FiPlus, FiLogOut } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
-import HeadlessTippy from "@tippyjs/react/headless";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import classNames from "classnames/bind";
 
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
-import Dropper from "~/components/Dropper/index";
-import SearchAccountItems from "~/components/SearchAccountItems/index";
-import SearchResultItems from "~/components/SearchResultItems/index";
 import Button from "~/components/Button/index";
 import Menu from "~/components/Dropper/Menu/index";
 import languages from "~/assets/languagesCode/index";
 import Image from "~/components/Image/index";
+import Search from "~/components/Search/index";
+import { InboxIcon, UploadIcon } from "~/components/Icons";
 
 const cx = classNames.bind(styles);
 
@@ -70,19 +67,7 @@ const handleMenuChange = (menuItem) => {
 };
 
 function Header() {
-  const [searchValue, setSearchValue] = useState("");
-  const [visible, setVisible] = useState(true); //for Tippy library
-  const show = () => setVisible(true);
-  const hide = () => setVisible(false);
   const currentUser = true;
-
-  useEffect(() => {
-    if (searchValue.length > 0) {
-      show();
-    } else {
-      hide();
-    }
-  }, [searchValue]);
 
   return (
     <header className={cx("wrapper")}>
@@ -92,64 +77,20 @@ function Header() {
             <img src={images.logo} alt="TikTok" />
           </Link>
         </div>
-        <div className={cx("search")}>
-          <HeadlessTippy
-            interactive
-            render={(attrs) => (
-              <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-                <Dropper>
-                  <div>
-                    <SearchResultItems />
-                    <SearchResultItems />
-                    <SearchResultItems />
-                  </div>
-                  <div className={cx("accounts-result")}>
-                    <p className={cx("account-heading")}>Accounts</p>
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                    <SearchAccountItems />
-                  </div>
-                </Dropper>
-              </div>
-            )}
-            visible={visible}
-            onClickOutside={hide}
-          >
-            <input
-              className={cx("search-input")}
-              type="text"
-              placeholder="Search account and videos"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </HeadlessTippy>
-          <div className={cx("search-focusing")}>
-            <button className={cx("clear-btn")}>
-              <BsXCircleFill />
-            </button>
-            <div className={cx("search-loading")}>
-              <BiLoaderAlt />
-            </div>
-          </div>
-          <span className={cx("span-spliter")}></span>
-          <button className={cx("search-btn")}>
-            <BiSearch size={24} />
-          </button>
-        </div>
+        <Search />
 
         {currentUser ? (
           <div className={cx("current-user")}>
-            <Button outline to="/upload" leftIcon={<FiPlus size={21} />}>
+            <Button
+              outline
+              to="/upload"
+              leftIcon={<UploadIcon width="20px" height="20px" />}
+            >
               Upload
             </Button>
             <Tippy content="Inbox" placement="bottom">
               <button className={cx("inbox-btn")}>
-                <BsChatSquareText size={22} />
+                <InboxIcon width="32px" height="32px" />
               </button>
             </Tippy>
 

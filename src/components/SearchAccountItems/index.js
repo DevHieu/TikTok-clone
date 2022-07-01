@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
@@ -6,27 +7,33 @@ import Image from "~/components/Image/index";
 
 const cx = classNames.bind(styles);
 
-function SearchAccountItems() {
+function SearchAccountItems({ data }) {
   return (
-    <div className={cx("wrapper")}>
-      <Image
-        src="https://haycafe.vn/wp-content/uploads/2022/03/avatar-facebook-doc.jpg"
-        alt="avatar"
-        width="40"
-        height="40"
-        circle
-        className={cx("avatar")}
-      />
-      <div className={cx("info")}>
-        <span className={cx("name")}>
-          <h4>Nguyen Van A</h4>
-          <FontAwesomeIcon className={cx("check-icon")} icon={faCheckCircle} />
-        </span>
-        <div className={cx("user-name")}>
-          <p>Nguyen Van A</p>
+    <Link to={`/@${data.nickname}`}>
+      <div className={cx("wrapper")}>
+        <Image
+          src={data.avatar}
+          alt="avatar"
+          width="40"
+          height="40"
+          className={cx("avatar")}
+        />
+        <div className={cx("info")}>
+          <span className={cx("name")}>
+            <h4>{data.nickname}</h4>
+            {data.tick && (
+              <FontAwesomeIcon
+                className={cx("check-icon")}
+                icon={faCheckCircle}
+              />
+            )}
+          </span>
+          <div className={cx("user-name")}>
+            <p>{data.full_name}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 export default SearchAccountItems;

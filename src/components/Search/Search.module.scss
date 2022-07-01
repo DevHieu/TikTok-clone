@@ -1,0 +1,112 @@
+.search {
+  width: 361px;
+  height: 46px;
+  display: flex;
+  background-color: var(--gray);
+  align-items: center;
+  border-radius: var(--search-border-radius);
+  padding-left: 16px;
+  &:focus-within {
+    border: 1.5px solid var(--border);
+  }
+  .search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 292px;
+    height: 22px;
+    font-size: 16px;
+    font-weight: 400;
+    caret-color: var(--primary);
+    &::-webkit-search-cancel-button {
+      cursor: pointer;
+      background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+        no-repeat 50% 50%;
+      // background-size: contain;
+      -webkit-appearance: none;
+      opacity: 0.5;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+    }
+    &:not(:placeholder-shown) ~ .search-btn {
+      color: #4c4e57;
+    }
+  }
+  .search-focusing {
+    width: 28px;
+    height: 16px;
+    .clear-btn,
+    .search-loading {
+      // position: absolute;
+      border: none;
+      outline: none;
+      color: var(--icon-color);
+      cursor: pointer;
+    }
+    .search-loading {
+      animation: rotation 1s linear infinite;
+    }
+  }
+  .search-result {
+    width: 361px;
+    padding-top: 10px;
+    transform: translateX(30px);
+    .result {
+      padding: 9px 16px;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      cursor: pointer;
+      .result-icon {
+        margin-right: 8px;
+      }
+      .result-content {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+    .search-focusing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px 12px;
+    }
+    .account-heading {
+      padding: 5px 12px;
+      color: var(--text-heading);
+    }
+  }
+  .span-spliter {
+    width: 1px;
+    height: 28px;
+    background-color: var(--icon-color);
+  }
+  .search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    color: var(--icon-color);
+    cursor: pointer;
+    &:hover {
+      background: var(--hover);
+    }
+    &:active {
+      background: var(--active);
+    }
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
