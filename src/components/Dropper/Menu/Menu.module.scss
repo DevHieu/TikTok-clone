@@ -1,5 +1,9 @@
 .menu-wrapper {
   width: 233px;
+  .menu-body {
+    overflow: hidden auto;
+    max-height: 590px;
+  }
 }
 
 //MenuItems
@@ -26,7 +30,10 @@
 //MenuHeader
 .menu-header {
   display: flex;
+  flex-shrink: 0;
+  align-items: center;
   width: 100%;
+  height: 50px;
   .back-btn {
     width: 48px;
     border: none;

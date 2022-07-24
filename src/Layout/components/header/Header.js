@@ -11,12 +11,13 @@ import classNames from "classnames/bind";
 
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
-import Button from "~/components/Button/index";
+import routesConfig from "~/config/routes";
+import Button from "~/components/Button/Button";
 import Menu from "~/components/Dropper/Menu/index";
 import languages from "~/assets/languagesCode/index";
-import Image from "~/components/Image/index";
-import Search from "~/components/Search/index";
-import { InboxIcon, UploadIcon } from "~/components/Icons";
+import Image from "~/components/Image/Image";
+import Search from "~/components/Search/Search";
+import { InboxIcon, UploadIcon } from "~/components/Icons/Icons";
 
 const cx = classNames.bind(styles);
 
@@ -67,13 +68,13 @@ const handleMenuChange = (menuItem) => {
 };
 
 function Header() {
-  const currentUser = true;
+  const currentUser = false;
 
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
         <div className={cx("logo")}>
-          <Link to="/">
+          <Link to={routesConfig.home}>
             <img src={images.logo} alt="TikTok" />
           </Link>
         </div>
@@ -83,20 +84,23 @@ function Header() {
           <div className={cx("current-user")}>
             <Button
               outline
-              to="/upload"
+              to={routesConfig.upload}
               leftIcon={<UploadIcon width="20px" height="20px" />}
             >
               Upload
             </Button>
-            <Tippy content="Inbox" placement="bottom">
-              <button className={cx("inbox-btn")}>
-                <InboxIcon width="32px" height="32px" />
-              </button>
-            </Tippy>
+            <div>
+              <Tippy content="Inbox" placement="bottom">
+                <button className={cx("inbox-btn")}>
+                  <InboxIcon width="32px" height="32px" />
+                </button>
+              </Tippy>
+            </div>
 
             <Menu
               onChange={handleMenuChange}
               items={UserMenu}
+              hideOnClick={false}
               children={
                 <Image
                   src="https://haycafe.vn/wp-content/uploads/2022/03/avatar-facebook-doc.jpg"

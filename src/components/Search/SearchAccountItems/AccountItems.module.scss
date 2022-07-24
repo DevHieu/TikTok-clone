@@ -19,10 +19,6 @@
     }
   }
 }
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: #d9d9d9;
-  border-radius: 92px;
+.wrapper:hover {
+  background: var(--hover);
 }

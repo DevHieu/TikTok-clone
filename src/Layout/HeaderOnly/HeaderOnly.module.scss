@@ -1,12 +1,12 @@
 .wrapper {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
-  .main-container {
+  .container {
     width: 1150px;
     height: 1000px;
     display: flex;
     padding: 0 var(--default-layout-header-horizontal-space);
+    margin-top: 60px;
   }
 }

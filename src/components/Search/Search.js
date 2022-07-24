@@ -1,45 +1,44 @@
 import { useState, useEffect, useRef } from "react";
-import { useDebounce } from "~/hooks";
 import HeadlessTippy from "@tippyjs/react/headless";
 import styles from "./Search.module.scss";
 import classNames from "classnames/bind";
 
+import { useDebounce } from "~/hooks";
+import searchService from "~/service/searchService";
 import Dropper from "~/components/Dropper/index";
-import SearchAccountItems from "~/components/SearchAccountItems/index";
-import SearchResultItems from "~/components/SearchResultItems/index";
-import { SearchIcon, LoadingIcon, DeleteIcon } from "~/components/Icons";
+import SearchAccountItems from "~/components/Search/SearchAccountItems/SearchAccountItems";
+import SearchResultItems from "~/components/Search/SearchResultItems/SearchResultItems";
+import { SearchIcon, LoadingIcon, DeleteIcon } from "~/components/Icons/Icons";
 
 const cx = classNames.bind(styles);
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const inputRef = useRef();
 
-  const debounce = useDebounce(searchValue, 700);
+  const debounceValue = useDebounce(searchValue, 700);
 
   useEffect(() => {
-    if (!debounce.trim()) {
+    if (!debounceValue.trim()) {
       setSearchResult([]);
       return;
     }
 
-    setLoading(true);
+    const fetchAPI = async () => {
+      setLoading(true);
+      const result = await searchService(
+        encodeURIComponent(debounceValue),
+        "less"
+      );
+      setSearchResult(result);
+      setLoading(false);
+    };
 
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounce
-      )}&type=less`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, [debounce]);
+    fetchAPI();
+  }, [debounceValue]);
 
   //handle delete keyword in search box
   const handleClear = () => {
@@ -49,6 +48,14 @@ function Search() {
 
   const handleHideResult = () => {
     setShowResult(false);
+  };
+
+  const handleSearchValue = (e) => {
+    const searchSyntax = e.target.value;
+
+    if (!searchSyntax.startsWith(" ")) {
+      setSearchValue(searchSyntax);
+    }
   };
 
   return (
@@ -80,7 +87,7 @@ function Search() {
           type="text"
           placeholder="Search account and videos"
           value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleSearchValue}
           onFocus={() => setShowResult(true)}
           ref={inputRef}
         />
@@ -101,7 +108,10 @@ function Search() {
         )}
       </div>
       <span className={cx("span-spliter")}></span>
-      <button className={cx("search-btn")}>
+      <button
+        className={cx("search-btn")}
+        onMouseDown={(e) => e.preventDefault()}
+      >
         <SearchIcon />
       </button>
     </div>

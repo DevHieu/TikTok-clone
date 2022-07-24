@@ -12,6 +12,10 @@
   text-rendering: optimizeLegibility;
 }
 
+body {
+  overflow: hidden overlay;
+}
+
 :root {
   --primary: #fe2c55;
   --black: #161823;
@@ -27,6 +31,14 @@
   --default-layout-header-height: 60px;
   --default-layout-header-width: 1150px;
   --default-layout-header-horizontal-space: 26px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;
+  border-radius: 92px;
 }
 
 button {

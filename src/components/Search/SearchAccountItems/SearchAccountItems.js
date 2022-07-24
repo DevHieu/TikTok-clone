@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
 import styles from "./AccountItems.module.scss";
-import Image from "~/components/Image/index";
+import Image from "~/components/Image/Image";
 
 const cx = classNames.bind(styles);
 
@@ -36,4 +37,9 @@ function SearchAccountItems({ data }) {
     </Link>
   );
 }
+
+SearchAccountItems.propTypes = {
+  data: PropTypes.object,
+};
+
 export default SearchAccountItems;

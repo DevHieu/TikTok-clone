@@ -1,6 +1,5 @@
+import PropTypes from "prop-types";
 import { AiOutlineLeft } from "react-icons/ai";
-// import Tippy from "@tippyjs/react/headless";
-// import "tippy.js/dist/tippy.css";
 import classNames from "classnames/bind";
 
 import styles from "./Menu.module.scss";
@@ -16,4 +15,10 @@ function MenuHeader({ title, onBack }) {
     </div>
   );
 }
+
+MenuHeader.propTyeps = {
+  title: PropTypes.string.isRequired,
+  onBack: PropTypes.func.isRequired,
+};
+
 export default MenuHeader;

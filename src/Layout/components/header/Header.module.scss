@@ -1,11 +1,14 @@
 .wrapper {
   --search-border-radius: 92px;
-  width: 100%;
-  height: var(--default-layout-header-height);
-  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  height: var(--default-layout-header-height);
+  z-index: 10;
+  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+  background: var(--white);
   .inner {
     width: var(--default-layout-header-width);
     height: 100%;
@@ -13,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--default-layout-header-horizontal-space);
-    
+
     .actions {
       display: flex;
       justify-content: center;
@@ -38,7 +41,6 @@
       .user-avatar {
         border-radius: 50%;
         cursor: pointer;
-
       }
     }
   }

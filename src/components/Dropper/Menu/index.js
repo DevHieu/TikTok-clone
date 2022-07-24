@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
@@ -12,7 +13,12 @@ const cx = classNames.bind(styles);
 
 const defaultFunction = () => {};
 
-function Menu({ children, items = [], onChange = defaultFunction() }) {
+function Menu({
+  children,
+  items = [],
+  hideOnClick = false,
+  onChange = defaultFunction(),
+}) {
   const [history, setHistory] = useState([{ data: items }]);
   const currentMenu = history[history.length - 1];
 
@@ -33,33 +39,46 @@ function Menu({ children, items = [], onChange = defaultFunction() }) {
     );
   });
 
+  const handleHide = () => {
+    setHistory((prev) => prev.slice(0, 1));
+  };
+
   return (
-    <Tippy
-      interactive
-      delay={[0, 700]}
-      offset={[12, 8]}
-      placement="bottom-end"
-      onHide={() => {
-        setHistory((prev) => prev.slice(0, 1));
-      }}
-      render={(attrs) => (
-        <div className={cx("menu-wrapper")} tabIndex="-1" {...attrs}>
-          <Dropper>
-            {history.length > 1 && (
-              <MenuHeader
-                title="Language"
-                onBack={() => {
-                  setHistory((prev) => prev.slice(0, prev.length - 1));
-                }}
-              />
-            )}
-            <div>{renderItems}</div>
-          </Dropper>
-        </div>
-      )}
-    >
-      <div className={cx("menu-icon")}>{children}</div>
-    </Tippy>
+    <div>
+      <Tippy
+        interactive
+        delay={[0, 700]}
+        offset={[12, 8]}
+        placement="bottom-end"
+        hideOnClick={hideOnClick}
+        onHide={handleHide}
+        render={(attrs) => (
+          <div className={cx("menu-wrapper")} tabIndex="-1" {...attrs}>
+            <Dropper>
+              {history.length > 1 && (
+                <MenuHeader
+                  title={currentMenu.title}
+                  onBack={() => {
+                    setHistory((prev) => prev.slice(0, prev.length - 1));
+                  }}
+                />
+              )}
+              <div className={cx("menu-body")}>{renderItems}</div>
+            </Dropper>
+          </div>
+        )}
+      >
+        <div className={cx("menu-icon")}>{children}</div>
+      </Tippy>
+    </div>
   );
 }
+
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+  items: PropTypes.array,
+  hideOnClick: PropTypes.bool,
+  onChange: PropTypes.func,
+};
+
 export default Menu;
