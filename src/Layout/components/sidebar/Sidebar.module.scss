@@ -1,4 +1,25 @@
 .container {
-  width: 348px;
+  width: 356px;
   height: 1658px;
+  padding: 20px 0px 26px 8px;
+  .sidebar-header {
+    display: flex;
+    flex-direction: column;
+    .header-items {
+      padding: 8px;
+      &:hover {
+        background: var(--hover);
+      }
+    }
+  }
+  .sidebar-login {
+    padding: 20px 8px 24px 8px;
+    margin-top: 8px;
+    border-top: 1px solid #f1f1f2;
+    .login-title {
+      color: var(--text-heading);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+  }
 }

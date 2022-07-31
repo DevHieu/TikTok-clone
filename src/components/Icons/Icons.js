@@ -158,7 +158,7 @@ export const HomeActiveIcon = ({
   </svg>
 );
 
-export const UserGroupIcon = ({
+export const FollowingIcon = ({
   width = "3.2rem",
   height = "3.2rem",
   className,
@@ -189,7 +189,7 @@ export const UserGroupIcon = ({
   </svg>
 );
 
-export const UserGroupActiveIcon = ({
+export const FollowingActiveIcon = ({
   width = "3.2rem",
   height = "3.2rem",
   className,

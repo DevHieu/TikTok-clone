@@ -49,6 +49,9 @@
   &:hover {
     background-color: rgba(254, 44, 85, 0.06);
   }
+  &:active {
+    background-color: #fe2c5529;
+  }
 }
 .small {
   width: 88px;
@@ -56,7 +59,8 @@
   color: var(--primary);
   border: 1px solid var(--primary);
   &:hover {
-    background-color: rgba(254, 44, 85, 0.06);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+      #fe2c55;
   }
 }
 .rounded .children {

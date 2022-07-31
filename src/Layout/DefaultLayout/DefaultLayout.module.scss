@@ -5,8 +5,8 @@
   .main-container {
     width: 1150px;
     height: 1000px;
+    max-width: 100%;
     display: flex;
-    padding: 0 var(--default-layout-header-horizontal-space);
     margin-top: 60px;
   }
 }
