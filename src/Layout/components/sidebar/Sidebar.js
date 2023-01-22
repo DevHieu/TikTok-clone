@@ -22,21 +22,20 @@ const cx = classNames.bind(styles);
 
 function Sidebar() {
   const [step, setStep] = useState(5);
-  // const [lengthItems, setLengthItems] = useState();
   const [account, setAccount] = useState([]);
   const accountAPI = process.env.REACT_APP_SUGGEST_ACCOUNT;
 
   useEffect(() => {
-    axios
-      .get(accountAPI)
-      // .then((res) => setLengthItems(res.data.length))
-      .then((res) => setAccount(res.data));
+    axios.get(accountAPI).then((res) => setAccount(res.data));
   }, [accountAPI]);
 
-  // const handleSeeMore = () => {
-  //   setStep(lengthItems);
-  // };
-
+  const handleSeeMore = () => {
+    if ((step = 5)) {
+      setStep(account.length);
+    } else {
+      setStep(5);
+    }
+  };
   return (
     <div className={cx("container")}>
       <div className={cx("sidebar-header")}>
@@ -76,7 +75,9 @@ function Sidebar() {
         {account.slice(0, step).map((value, index) => (
           <AccountSidebar key={index} data={value} />
         ))}
-        <p className={cx("see-all")}>See all</p>
+        <p className={cx("see-all")} onClick={handleSeeMore()}>
+          See all
+        </p>
       </div>
       <div className={cx("sidebar-discover")}>
         <p className={cx("discover-title")}>Discover</p>
