@@ -1,25 +1,54 @@
 .container {
   width: 356px;
   height: 1658px;
-  padding: 20px 0px 26px 8px;
+  padding: 20px 16px 26px 16px;
   .sidebar-header {
     display: flex;
     flex-direction: column;
     .header-items {
-      padding: 8px;
+      padding: 8px 0px;
       &:hover {
         background: var(--hover);
       }
     }
   }
   .sidebar-login {
-    padding: 20px 8px 24px 8px;
+    padding: 20px 0px 24px 0px;
     margin-top: 8px;
     border-top: 1px solid #f1f1f2;
+    border-bottom: 1px solid #f1f1f2;
     .login-title {
       color: var(--text-heading);
       font-weight: 400;
       margin-bottom: 20px;
     }
   }
+  .sidebar-suggested {
+    padding: 16px;
+    transform: translateX(-1em);
+    .suggest-title {
+      font-size: 14px;
+      color: var(--text-heading);
+      margin: 0 0 8px 0;
+    }
+  }
+  .sidebar-discover {
+    border-top: 1px solid #f1f1f2;
+    border-bottom: 1px solid #f1f1f2;
+    padding: 16px 0;
+    .discover-title {
+      font-size: 14px;
+      padding-bottom: 16px;
+      color: var(--text-heading);
+    }
+  }
+}
+.see-all {
+  color: rgb(254, 44, 85);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  width: fit-content;
+  cursor: pointer;
+  padding-top: 8px;
 }

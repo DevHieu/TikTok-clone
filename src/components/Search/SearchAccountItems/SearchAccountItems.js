@@ -29,9 +29,7 @@ function SearchAccountItems({ data }) {
               />
             )}
           </span>
-          <div className={cx("user-name")}>
-            <p>{data.full_name}</p>
-          </div>
+          <div className={cx("user-name")}>{data.full_name}</div>
         </div>
       </div>
     </Link>

@@ -17,6 +17,10 @@
         color: #20d5ec;
       }
     }
+    .user-name {
+      color: var(--text-heading);
+      font-size: 14px;
+    }
   }
 }
 .wrapper:hover {

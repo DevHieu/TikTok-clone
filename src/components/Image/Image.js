@@ -14,7 +14,7 @@ function Image({ src, alt, className, ...props }) {
     <img
       src={image || src}
       alt={alt}
-      className={classNames(styles.wrapper, className)}
+      className={classNames(styles.images, className)}
       {...props}
       onError={handleError}
     />

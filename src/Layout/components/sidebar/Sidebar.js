@@ -1,6 +1,12 @@
+import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
+import axios from "axios";
 
-import { HeaderItem } from "./SidebarItems";
+import {
+  HeaderItem,
+  DiscoverItem,
+  AccountSidebar,
+} from "~/components/SidebarItems";
 import {
   HomeIcon,
   HomeActiveIcon,
@@ -15,6 +21,22 @@ import styles from "./Sidebar.module.scss";
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+  const [step, setStep] = useState(5);
+  // const [lengthItems, setLengthItems] = useState();
+  const [account, setAccount] = useState([]);
+  const accountAPI = process.env.REACT_APP_SUGGEST_ACCOUNT;
+
+  useEffect(() => {
+    axios
+      .get(accountAPI)
+      // .then((res) => setLengthItems(res.data.length))
+      .then((res) => setAccount(res.data));
+  }, [accountAPI]);
+
+  // const handleSeeMore = () => {
+  //   setStep(lengthItems);
+  // };
+
   return (
     <div className={cx("container")}>
       <div className={cx("sidebar-header")}>
@@ -48,6 +70,18 @@ function Sidebar() {
           Log in to follow creators, like videos, and view comments.
         </p>
         <Button large>Log In</Button>
+      </div>
+      <div className={cx("sidebar-suggested")}>
+        <p className={cx("suggest-title")}>Suggested accounts</p>
+        {account.slice(0, step).map((value, index) => (
+          <AccountSidebar key={index} data={value} />
+        ))}
+        <p className={cx("see-all")}>See all</p>
+      </div>
+      <div className={cx("sidebar-discover")}>
+        <p className={cx("discover-title")}>Discover</p>
+        <DiscoverItem />
+        <p className={cx("see-all")}>See all</p>
       </div>
     </div>
   );

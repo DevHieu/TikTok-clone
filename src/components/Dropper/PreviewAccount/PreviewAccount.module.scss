@@ -1,0 +1,60 @@
+.account-dropper {
+  width: 320px;
+  padding: 20px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+  border-radius: 8px;
+  .dropper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .dropper-body {
+    .name {
+      display: flex;
+      align-items: center;
+      .nickname-account {
+        color: var(--black);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+      }
+      .check-icon {
+        margin-left: 4px;
+        color: rgb(32, 213, 236);
+      }
+    }
+    .full-name {
+      color: var(--black);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  .dropper-footer {
+    display: flex;
+    margin-top: 8px;
+    .followers {
+      margin-right: 12px;
+      .followers-count {
+        font-weight: 700;
+        margin-right: 6px;
+        font-size: 17px;
+      }
+      .followers-text {
+        color: var(--title);
+      }
+    }
+    .likes {
+      .likes-count {
+        font-weight: 700;
+        margin-right: 6px;
+        font-size: 17px;
+      }
+      .likes-text {
+        color: var(--title);
+      }
+    }
+  }
+}

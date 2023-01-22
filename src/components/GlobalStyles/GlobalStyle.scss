@@ -21,6 +21,7 @@ body {
   --black: #161823;
   --gray: #1618230f;
   --text-heading: #16182380;
+  --title: #161823bf;
   --white: #ffffff;
   --icon-color: #a6a7ac;
   --hover: #16182308;
@@ -39,6 +40,10 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #d9d9d9;
   border-radius: 92px;
+}
+
+.circle {
+  border-radius: 50%;
 }
 
 button {
